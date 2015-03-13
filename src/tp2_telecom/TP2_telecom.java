@@ -16,6 +16,15 @@ public class TP2_telecom {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+            char lettreSelect='B';
+            int value = (int)lettreSelect;
+            String affiche="";
+            while(value!=0){
+                int v=value%2;
+                value=value/2;
+                affiche=""+v+affiche;
+            }
+            System.out.println(affiche);
     }
     
 }
