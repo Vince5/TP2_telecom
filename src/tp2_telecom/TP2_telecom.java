@@ -16,15 +16,41 @@ public class TP2_telecom {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-            char lettreSelect='B';
-            int value = (int)lettreSelect;
-            String affiche="";
-            while(value!=0){
-                int v=value%2;
-                value=value/2;
-                affiche=""+v+affiche;
-            }
+            
+            String affiche = convertiChar('B');
             System.out.println(affiche);
+            String parite = "";
+            if(isPair(affiche)){
+                parite = "0";
+            }else{
+                parite = "1";
+            }
+            String chaineFinale = parite + affiche;
+            System.out.println(chaineFinale);
+    }
+    
+    public static String convertiChar(char c){
+        
+        int value = (int)c;
+        String affiche="";
+        while(value!=0){
+            int v=value%2;
+            value=value/2;
+            affiche=""+v+affiche;
+        }
+        
+        return affiche;
+    }
+    
+    public static boolean isPair(String chaine){
+        int nb1 = 0;
+        
+        for(int i = 0; i < chaine.length(); i++){
+            if(chaine.charAt(i) == '1'){
+                nb1++;
+            }
+        }
+        return (nb1%2 == 0);
     }
     
 }
