@@ -17,7 +17,7 @@ public class TP2_telecom {
     public static void main(String[] args) {
         // TODO code application logic here
             
-            String affiche = convertiChar('B');
+            String affiche = convertiChar('a');
             System.out.println(affiche);
             String parite = "";
             if(isPair(affiche)){
@@ -27,6 +27,8 @@ public class TP2_telecom {
             }
             String chaineFinale = parite + affiche;
             System.out.println(chaineFinale);
+            String NRZS=calculeNRZS(chaineFinale);
+            System.out.println(NRZS);
     }
     
     public static String convertiChar(char c){
@@ -52,5 +54,19 @@ public class TP2_telecom {
         }
         return (nb1%2 == 0);
     }
-    
+    public static String calculeNRZS(String codeNRZL){
+        String codeNRZS = "";
+        int valNext = 1;
+        for(int i = 0; i < codeNRZL.length(); i++){
+            if (codeNRZL.charAt(i)=='0'){
+                if(valNext==1){
+                    valNext=0;
+                }else{
+                    valNext=1;
+                }
+            }
+            codeNRZS= codeNRZS+valNext;
+        }
+        return codeNRZS;
+    }  
 }
