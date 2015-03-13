@@ -94,6 +94,11 @@ public class InterfacePrincipale extends javax.swing.JFrame {
         jLabel12.setText("jLabel12");
 
         jButton1.setText("Afficher");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,6 +200,36 @@ public class InterfacePrincipale extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        char c;
+        String parite = "";
+        String signal = "";
+        double vitesse = 0;
+        
+        c = jTextField1.getText().charAt(0);
+        
+        if(jRadioButton1.isSelected()){
+            parite = "pair";
+        }else if(jRadioButton2.isSelected()){
+            parite = "impair";
+        }else{
+            parite = "nulle";
+        }
+        
+        if(jRadioButton4.isSelected()){
+            signal = "L";
+        }else{
+            signal = "S";
+        }
+        
+        vitesse = Double.parseDouble(jTextField2.getText());
+        
+        Evenements evs = new Evenements(c, parite, signal, vitesse);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
