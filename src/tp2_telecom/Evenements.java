@@ -67,6 +67,8 @@ public class Evenements {
         try{
             for(int i=0; i<chaine.length(); i++){
                 fenetre.addChar(chaine.charAt(i));
+                fenetre.getContentPane().validate();
+                fenetre.getContentPane().repaint();
                 System.out.println("hey ");
                 sleep((long)vitesse*1000);
             }
