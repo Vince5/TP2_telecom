@@ -188,7 +188,8 @@ public class InterfacePrincipale extends javax.swing.JFrame {
             }else{
                 signal = "S";
             }
-
+            
+            //Tester si c'est bien un nombre
             vitesse = Double.parseDouble(jTextField2.getText());
 
             Evenements evs = new Evenements(c, parite, signal, vitesse, this);
