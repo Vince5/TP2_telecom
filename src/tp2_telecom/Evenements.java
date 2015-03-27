@@ -5,7 +5,10 @@
  */
 package tp2_telecom;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import static java.lang.Thread.sleep;
+import javax.swing.Timer;
 
 /**
  *
@@ -62,21 +65,19 @@ public class Evenements {
         
     }
     
-    private void afficherChaine(String chaine, double vitesse, InterfacePrincipale fenetre){
+    private void afficherChaine(final String chaine, double vitesse, final InterfacePrincipale fenetre){
         
-        try{
-            for(int i=0; i<chaine.length(); i++){
-                fenetre.addChar(chaine.charAt(i));
-                fenetre.getContentPane().validate();
-                fenetre.getContentPane().repaint();
-                System.out.println("hey ");
-                sleep((long)vitesse*1000);
+        int delay = (int) (vitesse*1000); //milliseconds
+        ActionListener taskPerformer = new ActionListener() {
+            int nbFait=0;
+            public void actionPerformed(ActionEvent evt) {
+                if (nbFait==7){
+                    ((Timer)evt.getSource()).stop();
+                }
+                fenetre.addChar(chaine.charAt(nbFait));
+                nbFait++;               
             }
-        }catch(Exception e){
-            
-        }
-       
-        
-        
+        };
+        new Timer(delay, taskPerformer).start();
     }
 }
