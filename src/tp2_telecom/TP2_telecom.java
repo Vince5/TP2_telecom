@@ -11,26 +11,11 @@ package tp2_telecom;
  */
 public class TP2_telecom {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-            
-            String affiche = convertiChar('a');
-            System.out.println(affiche);
-            String parite = "";
-            if(isPair(affiche)){
-                parite = "0";
-            }else{
-                parite = "1";
-            }
-            String chaineFinale = parite + affiche;
-            System.out.println(chaineFinale);
-            String NRZS=calculeNRZS(chaineFinale);
-            System.out.println(NRZS);
-    }
-    
+    /*
+    * Converti un caractère en chaine de 0 et 1
+    * @param c est le caractère a transformer
+    * @return affiche est un String de 7 caractères
+    */
     public static String convertiChar(char c){
         
         int value = (int)c;
@@ -44,6 +29,11 @@ public class TP2_telecom {
         return affiche;
     }
     
+    /*
+    * Détermine si la chaine de 7 bits a un nombre pair de 1
+    * @param chaine est la chaine
+    * @return boolean
+    */
     public static boolean isPair(String chaine){
         int nb1 = 0;
         
@@ -54,6 +44,13 @@ public class TP2_telecom {
         }
         return (nb1%2 == 0);
     }
+    
+    /*
+    * La fonction retourne la chaine si elle est en format NRZS à partir du
+    * code en format NRZL.
+    * @param recoit le codeNRZL
+    * @return le codeNRZS
+    */
     public static String calculeNRZS(String codeNRZL){
         String codeNRZS = "";
         int valNext = 1;

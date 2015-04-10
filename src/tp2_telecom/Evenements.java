@@ -21,7 +21,10 @@ import javax.swing.Timer;
  */
 public class Evenements {
     
-    
+    /*
+    * Gère selon ses arguments comment créer la chaine finale.
+    * @param c est le caractère à encoder, parite, signal (NRZS ou NRZL), vitesse d'affichage et la fenetre UI
+    */
     public Evenements(char c, String parite, String signal, double vitesse, InterfacePrincipale fenetre){
         
         //Transformer le char en chaine
@@ -70,6 +73,10 @@ public class Evenements {
         
     }
     
+    /*
+    * Affiche selon le temps donné, chaque caractère dans la fenêtre
+    * @param chaine finale, la vitesse et la fenetre
+    */
     private void afficherChaine(final String chaine, double vitesse, final InterfacePrincipale fenetre){
         
         int delay = (int) (vitesse*1000); //milliseconds
@@ -90,6 +97,10 @@ public class Evenements {
         new Timer(delay, taskPerformer).start();
     }
     
+    /*
+    * La fonction joue les sons selon la fréquence (1 ou 0).
+    * @param la chaine et l'index du caractère où la boucle est rendu.
+    */
     private void jouerSon(String chaine, int nbFait){
         String soundJouer;
                 if (chaine.charAt(nbFait)=='0'){
