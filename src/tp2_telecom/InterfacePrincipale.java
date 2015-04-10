@@ -5,6 +5,8 @@
  */
 package tp2_telecom;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Vincent
@@ -191,7 +193,9 @@ public class InterfacePrincipale extends javax.swing.JFrame {
             
             //Tester si c'est bien un nombre
             vitesse = Double.parseDouble(jTextField2.getText());
-
+            
+            jButton1.setEnabled(false);
+            
             Evenements evs = new Evenements(c, parite, signal, vitesse, this);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -248,6 +252,10 @@ public class InterfacePrincipale extends javax.swing.JFrame {
     
     public void viderText(){
         jLabel5.setText("");
+    }
+    
+    public JButton getBouton1(){
+        return jButton1;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -77,10 +77,21 @@ public class Evenements {
             int nbFait=0;
             public void actionPerformed(ActionEvent evt) {
                 if (nbFait==7){
+                    fenetre.getBouton1().setEnabled(true);
                     ((Timer)evt.getSource()).stop();
                 }
                 fenetre.addChar(chaine.charAt(nbFait));
-                String soundJouer;
+                
+                jouerSon(chaine, nbFait);
+                
+                nbFait++;
+            }
+        };
+        new Timer(delay, taskPerformer).start();
+    }
+    
+    private void jouerSon(String chaine, int nbFait){
+        String soundJouer;
                 if (chaine.charAt(nbFait)=='0'){
                     soundJouer=System.getProperty("user.dir")+"/src/son1.wav";
                 }else{
@@ -102,9 +113,5 @@ public class Evenements {
                  {
                      System.out.println(ex);
                  }
-                nbFait++;
-            }
-        };
-        new Timer(delay, taskPerformer).start();
     }
 }
