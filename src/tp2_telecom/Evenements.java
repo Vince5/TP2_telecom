@@ -7,8 +7,13 @@ package tp2_telecom;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.lang.Thread.sleep;
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.Timer;
+
 
 /**
  *
@@ -75,7 +80,29 @@ public class Evenements {
                     ((Timer)evt.getSource()).stop();
                 }
                 fenetre.addChar(chaine.charAt(nbFait));
-                nbFait++;               
+                String soundJouer;
+                if (chaine.charAt(nbFait)=='0'){
+                    soundJouer=System.getProperty("user.dir")+"/src/son1.wav";
+                }else{
+                    soundJouer=System.getProperty("user.dir")+"/src/son2.wav";
+                }
+                
+                try{
+                        File f=new File(soundJouer);
+                        AudioInputStream audioInputStream =
+                                AudioSystem.getAudioInputStream(
+                                        f);
+                        System.out.println("Test");
+                        Clip clip = AudioSystem.getClip();
+                        clip.open(audioInputStream);
+                        
+                        clip.start();
+                 }
+                 catch(Exception ex)
+                 {
+                     System.out.println(ex);
+                 }
+                nbFait++;
             }
         };
         new Timer(delay, taskPerformer).start();
