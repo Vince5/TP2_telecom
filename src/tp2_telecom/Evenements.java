@@ -114,7 +114,6 @@ public class Evenements {
                         AudioInputStream audioInputStream =
                                 AudioSystem.getAudioInputStream(
                                         f);
-                        System.out.println("Test");
                         Clip clip = AudioSystem.getClip();
                         clip.open(audioInputStream);
                         
