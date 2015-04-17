@@ -250,6 +250,9 @@ public class InterfacePrincipale extends javax.swing.JFrame {
         jLabel5.setText("");
     }
     
+    /*
+    * Ajoute un bit à la chaine déjà entrée.
+    */
     public void addChar(char c){
         jLabel5.setText(jLabel5.getText() + c);
     }
